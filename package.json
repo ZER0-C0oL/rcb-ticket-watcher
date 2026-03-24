@@ -1,0 +1,14 @@
+{
+  "name": "rcb-ticket-watcher",
+  "version": "1.0.0",
+  "description": "Telegram bot notification system for RCB ticket availability",
+  "main": "check.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}
