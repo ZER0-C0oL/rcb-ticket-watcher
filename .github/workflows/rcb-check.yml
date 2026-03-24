@@ -1,0 +1,27 @@
+name: Check RCB Tickets
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'  # Every 1 minute
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: npm install axios
+      
+      - name: Check RCB tickets
+        run: node check.js
+        env:
+          RCB_URL: ${{ secrets.RCB_URL }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
